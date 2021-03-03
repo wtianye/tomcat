@@ -16,6 +16,8 @@
  */
 package org.apache.juli.logging;
 
+import org.apache.wty.Tool;
+
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Formatter;
 import java.util.logging.Handler;
@@ -113,42 +115,42 @@ class DirectJDKLog implements Log {
 
     @Override
     public final void info(Object message) {
-        log(Level.INFO, String.valueOf(message), null);
+        log(Level.INFO,  Tool.shiftISO55891StringToUTF8(String.valueOf(message)), null);
     }
 
     @Override
     public final void info(Object message, Throwable t) {
-        log(Level.INFO, String.valueOf(message), t);
+        log(Level.INFO, Tool.shiftISO55891StringToUTF8(String.valueOf(message)), t);
     }
 
     @Override
     public final void warn(Object message) {
-        log(Level.WARNING, String.valueOf(message), null);
+        log(Level.WARNING, Tool.shiftISO55891StringToUTF8(String.valueOf(message)), null);
     }
 
     @Override
     public final void warn(Object message, Throwable t) {
-        log(Level.WARNING, String.valueOf(message), t);
+        log(Level.WARNING, Tool.shiftISO55891StringToUTF8(String.valueOf(message)), t);
     }
 
     @Override
     public final void error(Object message) {
-        log(Level.SEVERE, String.valueOf(message), null);
+        log(Level.SEVERE, Tool.shiftISO55891StringToUTF8(String.valueOf(message)), null);
     }
 
     @Override
     public final void error(Object message, Throwable t) {
-        log(Level.SEVERE, String.valueOf(message), t);
+        log(Level.SEVERE, Tool.shiftISO55891StringToUTF8(String.valueOf(message)), t);
     }
 
     @Override
     public final void fatal(Object message) {
-        log(Level.SEVERE, String.valueOf(message), null);
+        log(Level.SEVERE,Tool.shiftISO55891StringToUTF8(String.valueOf(message)), null);
     }
 
     @Override
     public final void fatal(Object message, Throwable t) {
-        log(Level.SEVERE, String.valueOf(message), t);
+        log(Level.SEVERE, Tool.shiftISO55891StringToUTF8(String.valueOf(message)), t);
     }
 
     // from commons logging. This would be my number one reason why java.util.logging
